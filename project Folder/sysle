@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.card {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Battery Circle */
+.battery-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 8px solid lime;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    font-size: 24px;
+}
+
+/* Input */
+input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

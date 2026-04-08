@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FC.Alarm</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<div class="card">
+    <h1>⚡ FC.Alarm</h1>
+
+    <div class="battery-circle">
+        <span id="level">--%</span>
+    </div>
+
+    <input type="number" id="target" placeholder="Set Alert %">
+
+    <div class="buttons">
+        <button onclick="startMonitor()">Start</button>
+        <button onclick="stopAlarm()">Stop</button>
+    </div>
+</div>
+
+<!-- Alarm Sound -->
+<audio id="alarm" src="alarm.mp3"></audio>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>

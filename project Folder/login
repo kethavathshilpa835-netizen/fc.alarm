@@ -1,0 +1,58 @@
+let battery, targetLevel;
+
+async function startMonitor() {
+    targetLevel = document.getElementById("target").value;
+
+    if ('getBattery' in navigator) {
+        battery = await navigator.getBattery();
+
+        updateLevel();
+
+        battery.addEventListener('levelchange', updateLevel);
+    } else {
+        alert("Battery API not supported in this browser");
+    }
+
+    requestNotificationPermission();
+}
+
+function updateLevel() {
+    let level = Math.floor(battery.level * 100);
+
+    document.getElementById("level").innerText = level + "%";
+
+    if (level >= targetLevel) {
+        playAlarm();
+        showNotification();
+    }
+}
+
+function playAlarm() {
+    let alarm = document.getElementById("alarm");
+    alarm.loop = true;
+    alarm.play();
+}
+
+function stopAlarm() {
+    let alarm = document.getElementById("alarm");
+    alarm.pause();
+}
+
+function requestNotificationPermission() {
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+    }
+}
+
+function showNotification() {
+    if (Notification.permission === "granted") {
+        new Notification("Battery Full!", {
+            body: "Please unplug charger!"
+        });
+    }
+}
+
+/* Service Worker */
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+}
